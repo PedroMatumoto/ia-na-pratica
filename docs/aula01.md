@@ -21,7 +21,7 @@
 **O cenário atual**
 
 **O problema:**
-Usar a interface web é fácil. Mas para poder utilizar em **sistemas reais** isso não basta. Como nós pegamos essa tecnologia e  que nós construímos? Como um sistema corporativo usa IA sem expor dados e sem custar uma fortuna?
+Usar a interface web é fácil. Mas para poder utilizar em **sistemas reais** isso não basta. Como nós transformamos essa tecnologia e construímos algo robusto? Como um sistema corporativo usa IA sem expor dados e sem custar uma fortuna?
 
 **O objetivo do curso:**
 1. Tirar a "magia" da Inteligência Artificial.
@@ -29,19 +29,50 @@ Usar a interface web é fácil. Mas para poder utilizar em **sistemas reais** is
 3. Aprender a arquitetar sistemas reais ao redor desses modelos.
 
 ---
+## 1. A Lente da IA: Como as máquinas enxergam o mundo?
 
-## Agenda da Aula de hoje
+Antes de falarmos de ChatGPT e texto, precisamos entender uma regra fundamental: **toda IA é, no fundo, um tradutor matemático**. 
 
-1. O que acontece "por baixo dos panos" de um LLM?
-2. A Ilusão da Memória: O paradigma *Stateless*
-3. O que é Contexto e por que ele custa caro?
-4. Estratégias de Arquitetura para manter o Contexto
-5. RAG (Retrieval-Augmented Generation) na Prática
-6. Dúvidas e Discussão
+* O mundo real é analógico, contínuo e cheio de nuances.
+* O mundo da IA é discreto, finito e estritamente **numérico**.
+
+Para uma IA entender qualquer coisa, nós precisamos primeiro converter o mundo físico em matrizes de números.
 
 ---
 
-## 1. Como um LLM enxerga o mundo?
+## 2. Diferentes IAs, Diferentes "Olhos"
+
+Dependendo do problema que queremos resolver, construímos "olhos" diferentes para a máquina:
+
+* **Visão Computacional (Robótica / Carros Autônomos):** A IA não vê um semáforo ou um pedestre. Ela enxerga tensores — grades tridimensionais de pixels (matrizes de cores RGB) e busca padrões numéricos de contraste que formam bordas.
+* **Séries Temporais (Machine Learning Tradicional):** Pensem nos dados de um motor de carro. Para prever uma falha ou otimizar um sistema, a IA enxerga o mundo como um fluxo contínuo de arrays numéricos (velocidade, temperatura, aceleração) ao longo do tempo.
+
+<figure style="display:flex; gap:20px; justify-content:center;">
+
+  <div style="text-align:center;">
+    <img width="1200" src="https://iaexpert.academy/wp-content/uploads/2020/10/testes-pedestres.jpg">
+    <figcaption>Fonte: IA Expert</figcaption>
+  </div>
+
+  <div style="text-align:center;">
+    <img height="500" src="https://mariofilho.com/img/guia_ts/0.png">
+    <figcaption>Fonte: Mario Filho</figcaption>
+  </div>
+
+</figure>
+
+
+---
+
+## 3. E a Linguagem Humana?
+
+Nós sabemos traduzir a foto de um cachorro em pixels. Sabemos traduzir o motor de um carro em dados numéricos. **Mas como transformamos "ideias", "sarcasmo" e "conversa" em matemática?**
+
+É exatamente para resolver esse problema que nasceram os **LLMs (Large Language Models)**
+
+---
+
+## 4. Como um LLM enxerga o mundo?
 
 * LLMs (Large Language Models) são, na sua essência, motores de probabilidade.
 * Eles recebem um texto (Prompt) e preveem a próxima palavra (Token).
@@ -49,7 +80,7 @@ Usar a interface web é fácil. Mas para poder utilizar em **sistemas reais** is
 
 ---
 
-## 2. O Paradigma Stateless (Sem Estado)
+## 5. O Paradigma Stateless (Sem Estado)
 
 Assim como o protocolo HTTP original, as APIs de LLM são **Stateless**.
 
@@ -72,7 +103,7 @@ sequenceDiagram
 
 ---
 
-## 3. Arquitetura Puramente Stateless
+## 6. Arquitetura Puramente Stateless
 
 **Vantagens:**
 * Altamente escalável (fácil balanceamento de carga).
@@ -85,7 +116,7 @@ sequenceDiagram
 
 ---
 
-## 4. A Ilusão da Memória: Entra o Contexto
+## 7. A Ilusão da Memória: Entra o Contexto
 
 Se o modelo não tem memória, como o ChatGPT lembra do meu nome?
 
@@ -107,7 +138,7 @@ sequenceDiagram
 
 ---
 
-## 5. O Custo do Contexto e a Janela de Tokens
+## 8. O Custo do Contexto e a Janela de Tokens
 
 * **Tokens:** A unidade de medida do LLM (aprox. 3/4 de uma palavra).
 * **Janela de Contexto (Context Window):** O limite máximo de tokens que o modelo consegue processar de uma vez (ex: 8k, 128k, 1M, 2M).
@@ -124,7 +155,7 @@ sequenceDiagram
 
 ---
 
-## 6. Arquiteturas para Gestão de Contexto
+## 9. Arquiteturas para Gestão de Contexto
 
 Como arquitetos de software, não podemos apenas jogar texto infinito no modelo. Precisamos de estratégias:
 
@@ -134,7 +165,7 @@ Como arquitetos de software, não podemos apenas jogar texto infinito no modelo.
 
 ---
 
-## 7. A Arquitetura RAG (Retrieval-Augmented Generation)
+## 10. A Arquitetura RAG (Retrieval-Augmented Generation)
 
 A forma mais eficiente de dar "conhecimento" ao LLM sem estourar a janela de contexto.
 
@@ -150,7 +181,7 @@ A forma mais eficiente de dar "conhecimento" ao LLM sem estourar a janela de con
 
 ---
 
-## 8. Banco Vetorial vs. Banco Tradicional
+## 11. Banco Vetorial vs. Banco Tradicional
 
 Por que não usamos um banco de dados SQL normal para o RAG?
 
@@ -163,7 +194,7 @@ Pensando em uma biblioteca:
 O Banco Vetorial busca por significado (semântica), não por palavras-chave.
 
 ---
-## 9. Embeddings: Como o computador entende a "vibe"?
+## 12. Embeddings: Como o computador entende a "vibe"?
 
 Para o computador fazer essa processo, precisamos transformar texto em números através de Embeddings.
 
@@ -181,7 +212,7 @@ Ideias parecidas ficam fisicamente próximas umas das outras.
 
 ---
 
-## 10. Conclusão: O Papel do Engenheiro/Desenvolvedor
+## 13. Conclusão: O Papel do Engenheiro/Desenvolvedor
 
 Trabalhar com LLMs não é só "fazer prompts legais". É projetar sistemas robustos:
 
