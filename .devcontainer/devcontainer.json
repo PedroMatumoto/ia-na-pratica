@@ -9,7 +9,7 @@
         
     },
 
-    "forwardPorts": [80], // Mudamos de 6080 para 80!
+    "forwardPorts": [80],
     "portsAttributes": {
         "80": {
             "label": "Interface Visual (Acesse via Navegador)",
