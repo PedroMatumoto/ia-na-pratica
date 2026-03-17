@@ -114,7 +114,7 @@ O Fluxo Resiliente:
 
 ---
 
-## 9. Conclusão da Aula 2
+## 8. Conclusão da Aula 2
 
 Prompt vs Contexto: Você programa as regras no prompt e injeta dados no contexto.
 
@@ -124,6 +124,17 @@ Restrição de saídas!
 
 ---
 
-## 10. Prática
+## Materiais interessantes
+https://github.com/anthropics/courses
+
+https://developers.openai.com/api/docs/guides/prompt-engineering
+
+https://cloud.google.com/discover/what-is-prompt-engineering#use-cases-and-examples-of-prompt-engineering
+
+
+
+---
+
+## 9. Prática
 Como vocês estruturariam o JSON de saída para extrair os dados de um currículo em PDF?
 
