@@ -4,3 +4,4 @@ pandas
 streamlit
 pydantic
 chromadb
+pypdf2
