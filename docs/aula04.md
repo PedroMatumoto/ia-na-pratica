@@ -5,7 +5,7 @@
 
 <br>
 
-📱 **Material da Aula 3:**
+📱 **Material da Aula 4:**
 `https://github.com/pedromatumoto/ia-na-pratica/`
 
 </div>
